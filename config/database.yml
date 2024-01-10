@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: helpjuice_search_development
+  username: postgres
+
+test:
+  <<: *default
+  database: helpjuice_search_test
+  username: postgres
+
+production:
+  <<: *default
+  database: helpjuice_search_production
+  username: helpjuice_search
+  password: <%= ENV['HELPJUICE_SEARCH_DATABASE_PASSWORD'] %>
