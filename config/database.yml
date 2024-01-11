@@ -15,6 +15,7 @@ test:
 
 production:
   <<: *default
-  database: helpjuice_search_production
-  username: helpjuice_search
-  password: <%= ENV['HELPJUICE_SEARCH_DATABASE_PASSWORD'] %>
+  database: helpjuice-prod-db
+  username: tgagudok
+  url: postgres://tgagudok:7r2eqHO4qsvo2A_tRYuf0exbvmfa6Bqj@horton.db.elephantsql.com/tgagudok
+  password: 7r2eqHO4qsvo2A_tRYuf0exbvmfa6Bqj

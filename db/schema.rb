@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2024_01_11_021558) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
@@ -27,7 +24,7 @@ ActiveRecord::Schema.define(version: 2024_01_11_021558) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "query"
-    t.bigint "article_id", null: false
+    t.integer "article_id", null: false
     t.index ["article_id"], name: "index_searches_on_article_id"
   end
 
