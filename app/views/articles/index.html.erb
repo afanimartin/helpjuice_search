@@ -5,10 +5,8 @@
   <h2>Search analytics</h2>
 
   <%= form_with do |f| %>
-    <%= f.text_field :searchInput, id: 'searchInput', name: 'searchInput' %>
+    <%= f.text_field :searchInputField, id: 'searchInputField', name: 'searchInputField' %>
   <% end %>
-
-  <div id="searchDisplay"></div>
 
   <% if @articles.length > 0 %>
     <% @articles.each do |article| %>

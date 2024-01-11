@@ -1,23 +1,37 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const searchInputField = document.getElementById("searchInput");
-  const searchInputDisplay = document.getElementById("searchDisplay");
+  const searchInputField = document.getElementById("searchInputField");
+  const searchInputDisplay = document.getElementById("searchInputDisplay");
 
-  searchInputDisplay.addEventListener("input", function (event) {
-    const userInputValue = event.target.value;
-    searchInputDisplay.textContent = userInputValue;
+  let delayedSearchInputs = [];
+
+  searchInputField.addEventListener("input", function (event) {
+    const userInputValue = event.target.value.trim();
+
+    // clear previously set timeout
+    clearTimeout(delayedSearchInputs.timeout);
+
+    // set timeout for one second
+    delayedSearchInputs.timeout = setTimeout(function () {
+      // store user input in the list after 1 second
+      delayedSearchInputs.push(userInputValue);
+
+      console.log("Stored inputs: ", delayedSearchInputs);
+    }, 1000);
   });
 
   searchInputField.addEventListener("keypress", function (event) {
     if (event.key == "Enter") {
       event.preventDefault();
 
-      const searchContent = event.target.value.trim();
+      // Clear previously set timeout
+      clearTimeout(delayedSearchInputs.timeout);
 
-      if (searchContent !== "") {
-        createNewSearch(searchContent);
+      const finalSearchContent = delayedSearchInputs.pop();
+
+      if (finalSearchContent !== "") {
+        createNewSearch(finalSearchContent);
 
         event.target.value = "";
-
         searchInputDisplay.textContent = "";
       }
     }
