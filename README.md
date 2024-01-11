@@ -14,7 +14,7 @@
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
-    - [Front-End](#Front-end)
+    - [Demo](#demo)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -33,6 +33,8 @@
 
 **Helpjuice Instant Search** is a  app that records search performed by users instantly
 ## 🛠 Built With <a name="built-with"></a>
+![Screenshot from 2024-01-11 21-37-55](https://github.com/afanimartin/helpjuice_search/assets/80149314/663c39cd-af32-40c3-9723-2138e348c00c)
+
 
 ### Tech Stack <a name="tech-stack"></a>
 
@@ -48,6 +50,10 @@
 </details>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- DEMO -->
+## 💻 Demo <a name="demo"></a>
+- Try the app here: [live app](https://seashell-app-ycqt7.ondigitalocean.app/)
 
 <!-- GETTING STARTED -->
 
