@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
       delayedSearchInputs.push(userInputValue);
 
       console.log("Stored inputs: ", delayedSearchInputs);
-    }, 500);
+    }, 1000);
   });
 
   searchInputField.addEventListener("keypress", function (event) {
