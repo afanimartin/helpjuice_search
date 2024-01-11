@@ -11,8 +11,5 @@ class ArticlesController < ApplicationController
   private
   def set_article
     @article = Article.find_by(title: params[:title])
-    if @article.nil?
-      puts "Article not found for title: #{params[:title]}"
-    end
   end
 end
