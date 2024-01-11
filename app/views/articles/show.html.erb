@@ -1,1 +1,9 @@
-<h2><%= @article.title %></h2>
+<section class="articleDetails">
+  <h2><%= @article.title.capitalize %></h2>
+
+  <% @article.searches.group(:ip_address).count.each do |ip_address, count| %>
+    <ul>
+      <li>IP: <%= ip_address %> - Searches: <%= count %></li>
+    </ul>
+  <% end %>
+</section>

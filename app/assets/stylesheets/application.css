@@ -39,3 +39,8 @@ ol {
 .search form input[type="submit"]:hover {
   background-color: #01a9e9;
 }
+
+.articleDetails {
+  width: 50%;
+  margin: 50px auto;
+}

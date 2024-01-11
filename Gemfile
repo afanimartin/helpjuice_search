@@ -23,7 +23,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
+  gem 'rspec'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
