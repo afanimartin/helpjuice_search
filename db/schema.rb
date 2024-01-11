@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_10_203300) do
+ActiveRecord::Schema.define(version: 2024_01_11_021558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(version: 2024_01_10_203300) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "search_count"
   end
 
+  create_table "searches", force: :cascade do |t|
+    t.string "ip_address", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "query"
+    t.bigint "article_id", null: false
+    t.index ["article_id"], name: "index_searches_on_article_id"
+  end
+
+  add_foreign_key "searches", "articles"
 end

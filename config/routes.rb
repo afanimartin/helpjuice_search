@@ -3,6 +3,5 @@ Rails.application.routes.draw do
 
   resources :articles
 
-  get "articles/new", to: "articles#new"
-  post "articles/new", to: "articles#create"
+  post "searches", to: "searches#create"
 end

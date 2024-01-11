@@ -4,14 +4,15 @@
   <%= image_tag("helpjuice.png", height: 40) %>
   <h2>Search analytics</h2>
 
-  <%= form_with do |f| %>
-    <%= f.text_field :searchInputField, id: 'searchInputField', name: 'searchInputField' %>
+  <%= form_for :search, url: "/searches", method: :post do |f| %>
+    <%= f.text_field :title, id: 'searchInputField', name: 'title' %>
+    <%= f.submit 'Search' %>
   <% end %>
 
   <% if @articles.length > 0 %>
     <% @articles.each do |article| %>
       <ul>
-      <li><%= link_to article.title, article_path(article) %></li>
+      <li><%= link_to article.title, article_path(article) %> (<%= article.search_count.present? ? article.search_count : 0 %>)</li>
     </ul>
     <% end %>
   <% end %>

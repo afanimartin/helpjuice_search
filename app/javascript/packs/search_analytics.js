@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   const searchInputField = document.getElementById("searchInputField");
-  const searchInputDisplay = document.getElementById("searchInputDisplay");
 
   let delayedSearchInputs = [];
 
@@ -32,13 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
         createNewSearch(finalSearchContent);
 
         event.target.value = "";
-        searchInputDisplay.textContent = "";
       }
     }
   });
 
   function createNewSearch(title) {
-    const url = "/articles/new";
+    const url = "/searches";
 
     fetch(url, {
       method: "POST",
@@ -56,9 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
       })
       .then((data) => {
-        console.log("New article created: ", data);
+        console.log("New search created: ", data);
 
-        // Redirect to the newly created article
         window.location.href = `/articles/${data.id}`;
       })
       .catch((error) => {
