@@ -1,19 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <section class="search">
-  <%= image_tag("helpjuice.png", height: 40) %>
-  <h2>Search analytics</h2>
+  <%= image_tag("helpjuice.png", height: 40) %><b>Instant search</b>
 
-  <%= form_for :search, url: "/searches", method: :post do |f| %>
-    <%= f.text_field :title, id: 'searchInputField', name: 'title' %>
-    <%= f.submit 'Search' %>
+  <%= form_for :search, url: "/searches", method: :get do |f| %>
+    <%= f.text_field :query, id: 'searchInputField', placeholder: "search articles by title", autocomplete: "off" %>
   <% end %>
 
-  <% if @articles.length > 0 %>
-    <% @articles.each do |article| %>
-      <ul>
-      <li><%= link_to article.title.capitalize, article_path(article) %> (<%= article.searches.count.present? ? article.search_count : 0 %>)</li>
-    </ul>
-    <% end %>
-  <% end %>
+  <div id="searchResults"></div>
 </section>

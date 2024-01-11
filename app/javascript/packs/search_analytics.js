@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
       delayedSearchInputs.push(userInputValue);
 
       console.log("Stored inputs: ", delayedSearchInputs);
-    }, 1000);
+    }, 500);
   });
 
   searchInputField.addEventListener("keypress", function (event) {
@@ -29,11 +29,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (finalSearchContent !== "") {
         createNewSearch(finalSearchContent);
-
-        event.target.value = "";
       }
+
+      event.target.value = "";
     }
   });
+
+  function toUrlSafe(title) {
+    return title
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-zA-Z0-9]/g, "-");
+  }
 
   function createNewSearch(title) {
     const url = "/searches";
@@ -54,9 +61,10 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
       })
       .then((data) => {
-        console.log("New search created: ", data);
-
-        window.location.href = `/articles/${data.id}`;
+        console.log(data);
+        window.location.href = `/articles/${encodeURIComponent(
+          toUrlSafe(data.title)
+        )}`;
       })
       .catch((error) => {
         console.error(`There was a problem creating this search: ${error}`);

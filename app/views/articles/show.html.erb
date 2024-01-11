@@ -1,7 +1,8 @@
 <section class="articleDetails">
-  <h2><%= @article.title.capitalize %></h2>
+  <% article = formatted_article(params[:title]) %>
+  <h2><%= article.title.capitalize %></h2>
 
-  <% @article.searches.group(:ip_address).count.each do |ip_address, count| %>
+  <% article.searches.group(:ip_address).count.each do |ip_address, count| %>
     <ul>
       <li>IP: <%= ip_address %> - Searches: <%= count %></li>
     </ul>

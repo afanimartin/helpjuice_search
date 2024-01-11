@@ -1,4 +1,13 @@
 class SearchesController < ApplicationController
+  def index
+    @articles = Article.where("title ILIKE ?", "%#{params[:query]}%")
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @articles.pluck(:title) }
+    end
+  end
+  
   def create
     @article = Article.find_or_create_by(title: params[:title])
     
