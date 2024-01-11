@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const searchInputField = document.getElementById("searchInput");
   const searchInputDisplay = document.getElementById("searchDisplay");
 
-  searchInput.addEventListener("input", function (event) {
+  searchInputDisplay.addEventListener("input", function (event) {
     const userInputValue = event.target.value;
     searchInputDisplay.textContent = userInputValue;
   });
@@ -42,7 +42,10 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
       })
       .then((data) => {
-        console.log("New task created: ", data);
+        console.log("New article created: ", data);
+
+        // Redirect to the newly created article
+        window.location.href = `/articles/${data.id}`;
       })
       .catch((error) => {
         console.error(`There was a problem creating this search: ${error}`);
